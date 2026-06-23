@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('complaints', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
+            $table->string('judul');
+            $table->text('isi');
+            $table->enum('status', [
+                'pending',
+                'diproses',
+                'selesai'
+            ])->default('pending');
             $table->timestamps();
         });
     }

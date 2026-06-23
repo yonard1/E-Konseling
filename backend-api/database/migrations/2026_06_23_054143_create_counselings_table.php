@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('counselings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
+            $table->date('tanggal');
+            $table->text('masalah');
+            $table->text('solusi');
+            $table->text('catatan')->nullable();
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('jurusan');
             $table->string('alamat')->nullable();
             $table->string('no_hp')->nullable();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
         });
     }

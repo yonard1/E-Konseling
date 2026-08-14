@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('counselings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
-            $table->date('tanggal');
-            $table->text('masalah');
-            $table->text('solusi');
+            $table->date('tanggal'); 
+            $table->text('masalah'); 
+            $table->text('solusi')->nullable(); 
             $table->text('catatan')->nullable();
+            $table->enum('status', ['menunggu', 'dijadwalkan', 'selesai', 'ditolak'])->default('menunggu');
+            $table->foreignId('handled_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
         });
     }

@@ -65,7 +65,7 @@ class StudentController extends Controller
             'alamat' => 'nullable|string|max:255',
             'no_hp' => 'nullable|string|max:255',
         ]);
-            
+
         $student = Student::find($id);
 
         if(!$student){

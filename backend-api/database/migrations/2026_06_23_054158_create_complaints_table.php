@@ -21,6 +21,7 @@ return new class extends Migration
                 'diproses',
                 'selesai'
             ])->default('pending');
+            $table->foreignId('handled_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
         });
     }
